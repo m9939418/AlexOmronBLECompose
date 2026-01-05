@@ -14,6 +14,7 @@ import com.alex.yang.omronblecompose.domain.model.Device
 import com.alex.yang.omronblecompose.domain.model.ScanState
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
 
@@ -22,6 +23,10 @@ import javax.inject.Inject
  *
  *
  */
+interface BleScanner {
+    fun scan(): Flow<ScanState>
+}
+
 class BleScannerImpl @Inject constructor(
     @ApplicationContext private val context: Context
 ) : BleScanner {

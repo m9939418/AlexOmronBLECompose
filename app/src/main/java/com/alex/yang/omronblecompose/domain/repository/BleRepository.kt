@@ -1,5 +1,7 @@
 package com.alex.yang.omronblecompose.domain.repository
 
+import com.alex.yang.omronblecompose.domain.model.ConnectionState
+import com.alex.yang.omronblecompose.domain.model.Device
 import com.alex.yang.omronblecompose.domain.model.ScanState
 import kotlinx.coroutines.flow.Flow
 
@@ -10,4 +12,6 @@ import kotlinx.coroutines.flow.Flow
  */
 interface BleRepository {
     fun startScan(): Flow<ScanState>
+
+    fun connect(device: Device): Flow<ConnectionState>
 }
